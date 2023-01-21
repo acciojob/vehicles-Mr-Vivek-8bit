@@ -2,8 +2,13 @@ package com.driver;
 
 public class F1 extends Car {
 
+    String name;
+    boolean isManual;
+
     public F1(String name, boolean isManual) {
         //Use arbitrary values for parameters which are not mentioned
+        this.name = name;
+        this.isManual = isManual;
     }
 
     public void accelerate(int rate){
@@ -20,11 +25,49 @@ public class F1 extends Car {
 
         if(newSpeed == 0) {
             //Stop the car, set gear as 1
+            super.stopTheCar();
+            changeGear(1);
         }
         //for all other cases, change the gear accordingly
+        else if(newSpeed >= 1 && newSpeed <= 50 )
+        {
+            changeGear(1);
+            changeSpeed(newSpeed,0);
 
-        if(newSpeed > 0) {
-            changeSpeed(newSpeed, getCurrentDirection());
         }
+        else if(newSpeed >= 51 && newSpeed <= 50 )
+        {
+            changeGear(2);
+            changeSpeed(newSpeed, 0);
+
+        }
+        else if(newSpeed >= 101 && newSpeed <= 150 )
+        {
+            changeGear(3);
+            changeSpeed(newSpeed, 0);
+
+        }
+        else if(newSpeed >= 151 && newSpeed <= 200 )
+        {
+            changeGear(4);
+            changeSpeed(newSpeed, 0);
+        }
+        else if(newSpeed >= 201 && newSpeed <= 250 )
+        {
+            changeGear(5);
+            changeSpeed(newSpeed, 0);
+
+        }
+        else {
+            changeGear(6);
+            changeSpeed(newSpeed, 0);
+        }
+
+
+//        if(newSpeed > 0) {
+//
+//            changeSpeed(newSpeed, getCurrentDirection());
+//        }
+
     }
 }
